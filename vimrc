@@ -1,10 +1,16 @@
-" Pathogen Magic
+"----------------------------------------
+"------------------VIMRC-----------------
+"--------------initial-setup-------------
+"----------------------------------------
+
+" Pathogen Magic {{{
 call pathogen#infect()
 syntax on
 filetype off
 filetype plugin indent on
+"}}}
 
-" options
+" options {{{
 set nocompatible
 set backspace=indent,eol,start    " allow backspacing over auto indent
 set hidden
@@ -54,9 +60,14 @@ set modelines=2
 set ignorecase
 set smartcase
 
+set foldmethod=marker
+set foldcolumn=1
+
 set autoindent
 set autoread
 set autochdir
+
+set showmatch
 
 "" Tabs (use spaces)
 set tabstop=2
@@ -65,20 +76,27 @@ set softtabstop=2
 set expandtab
 
 set nomore
+"}}}
 
+" colors{{{
 if $TERM == 'linux'
   let &t_Co=8
   color peachpuff
 else
   color dotshare_term
 endif
+"}}}
 
-"Mappings
+"Mappings {{{
 let mapleader = ';' "mapleader to ;
-
 
 nnoremap <C-L> :nohl<CR><C-L>
 
-" Line numbers
+" NERDTree
+map <F3> :NERDTreeToggle<CR>
+"}}}
+
+" Line numbers {{{
 :au InsertEnter * :set number
 :au InsertLeave * :set relativenumber
+"}}}
