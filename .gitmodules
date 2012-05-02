@@ -1,6 +1,3 @@
-[submodule "bundle/csapprox"]
-	path = bundle/csapprox
-	url = https://github.com/Thbzz/csapprox.git
 [submodule "bundle/gist-vim"]
 	path = bundle/gist-vim
 	url = https://github.com/mattn/gist-vim.git
