@@ -94,6 +94,12 @@ nnoremap <C-L> :nohl<CR><C-L>
 
 " NERDTree
 map <F3> :NERDTreeToggle<CR>
+
+" Tabular
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:<CR>
+vmap <Leader>a: :Tabularize /:<CR>
 "}}}
 
 " Line numbers {{{
