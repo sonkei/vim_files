@@ -21,7 +21,7 @@ endif
 hi IndentGuidesOdd  ctermbg=black
 hi IndentGuidesEven ctermbg=darkgrey
 hi Nontext        guifg=#404040 ctermfg=238  gui=NONE cterm=NONE
-hi Normal         guifg=#BBBBBB ctermfg=250  guibg=#151515 ctermbg=233  gui=NONE cterm=NONE
+hi Normal         guifg=#BBBBBB ctermfg=250  guibg=#151515 ctermbg=16  gui=NONE cterm=NONE
 hi Cursor         guifg=NONE    ctermfg=NONE guibg=#FF8939 ctermbg=209  gui=NONE cterm=NONE
 hi CursorLine     guifg=NONE    ctermfg=NONE guibg=#202020 ctermbg=234  gui=NONE cterm=NONE
 hi LineNr         guifg=#404040 ctermfg=238  guibg=#101010 ctermbg=233  gui=NONE cterm=NONE
