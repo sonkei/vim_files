@@ -108,3 +108,42 @@ vmap <Leader>a: :Tabularize /:<CR>
 :au InsertEnter * :set number
 :au InsertLeave * :set relativenumber
 "}}}
+
+" FUNCTIONS {{{
+
+"ghlights - hl match under cursor differently from Search {{{
+fu! HL_Search_Cword()
+  let s:old_cpo = &cpo
+  set cpo&vim
+
+  if exists('b:search_cword_item')
+    try
+      call matchdelete(b:search_cword_item)
+    catch /^Vim\%((\a\+\)\=:E/ " ignore E802,E803
+    endtry
+  endif
+
+  " :silent !printf '\e]12;\#242424\a'
+  hi Search       ctermfg=233 ctermfg=106 cterm=bold
+  "hi Search       ctermfg=106 ctermbg=233 cterm=bold
+  hi search_cword ctermfg=085 ctermbg=234 cterm=bold
+
+  let b:search_cword_item = matchadd('search_cword', (&ic ? '\c' : '') . '\%#' . @/, 1)
+
+  let &cpo = s:old_cpo
+endfu
+"}}}
+
+" viminfo - save cursor position {{{
+autocmd BufReadPost * call SetCursorPosition()
+fu! SetCursorPosition()
+  if &filetype !~ 'svn\|commit\c'
+    if line("'\"") > 0 && line("'\"") <= line("$")
+      exe "normal! g`\""
+      normal! zz
+    endif
+  end
+endfu
+"}}}
+
+"}}}
