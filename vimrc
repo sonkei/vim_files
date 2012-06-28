@@ -147,3 +147,7 @@ endfu
 "}}}
 
 "}}}
+
+" VIM-SLIME {{{
+let g:slime_target = "tmux"
+"}}}
