@@ -94,9 +94,6 @@
 [submodule "bundle/color-vim"]
 	path = bundle/color-vim
 	url = https://github.com/Rykka/colorv.vim.git
-[submodule "bundle/vim-bundle-mako"]
-	path = bundle/vim-bundle-mako
-	url = https://github.com/sophacles/vim-bundle-mako.git
 [submodule "bundle/vim-ruby"]
 	path = bundle/vim-ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
