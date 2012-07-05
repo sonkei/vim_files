@@ -89,6 +89,11 @@ else
 endif
 "}}}
 
+" Highlight characters past 80c {{{
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+"}}}
+
 "Mappings {{{
 let mapleader = ';' "mapleader to ;
 
@@ -102,11 +107,6 @@ nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:<CR>
 vmap <Leader>a: :Tabularize /:<CR>
-"}}}
-
-" Line numbers {{{
-":au InsertEnter * :set number
-":au InsertLeave * :set relativenumber
 "}}}
 
 " FUNCTIONS {{{
@@ -146,9 +146,4 @@ fu! SetCursorPosition()
 endfu
 "}}}
 
-"}}}
-
-" Highlight characters past 80c {{{
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
 "}}}
