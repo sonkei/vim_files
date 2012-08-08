@@ -19,7 +19,7 @@ set wildmode=list:longest,full
 set wildignore=*.swp
 set showcmd
 set encoding=utf-8
-set hlsearch
+set hlsearch!
 set incsearch
 set lazyredraw
 set magic
@@ -68,8 +68,9 @@ set autoread
 set autochdir
 
 set showmatch
-
 set cursorline
+
+set clipboard=unnamed
 
 "" Tabs (use spaces)
 set tabstop=2
@@ -81,12 +82,8 @@ set nomore
 "}}}
 
 " colors{{{
-if $TERM == 'linux'
-  let &t_Co=8
-  color peachpuff
-else
-  color dotshare_term
-endif
+let &t_Co=256
+color tomorrow-night
 "}}}
 
 " Highlight characters past 80c {{{
@@ -97,7 +94,7 @@ match OverLength /\%81v.\+/
 "Mappings {{{
 let mapleader = ';' "mapleader to ;
 
-nnoremap <C-L> :nohl<CR><C-L>
+noremap <silent><Leader>/ :nohls<CR>
 
 " NERDTree
 map <F3> :NERDTreeToggle<CR>
@@ -107,6 +104,22 @@ nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:<CR>
 vmap <Leader>a: :Tabularize /:<CR>
+
+" Sane split navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Remove trailing whitespaces
+map <Leader><Space> :%s/\s\+$//g<CR>
+
+" Unmap arrow keys
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
 "}}}
 
 " FUNCTIONS {{{
@@ -147,3 +160,10 @@ endfu
 "}}}
 
 "}}}
+
+let g:ctrlp_prompt_mappings = {
+  \ 'AcceptSelection("e")': [],
+  \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
+  \ }
+
+set shell=/bin/sh

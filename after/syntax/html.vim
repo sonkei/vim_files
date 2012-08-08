@@ -67,8 +67,6 @@ syn include @htmlCss syntax/css/css3-colors.vim
 syn include @htmlCss syntax/css/css3-content.vim
 syn include @htmlCss syntax/css/css3-flexbox.vim
 syn include @htmlCss syntax/css/css3-gcpm.vim
-syn include @htmlCss syntax/css/css3-grid.vim
-syn include @htmlCss syntax/css/css3-grid-layout.vim
 syn include @htmlCss syntax/css/css3-hyperlinks.vim
 syn include @htmlCss syntax/css/css3-images.vim
 syn include @htmlCss syntax/css/css3-layout.vim
