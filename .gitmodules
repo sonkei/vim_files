@@ -112,3 +112,9 @@
 [submodule "bundle/vim-stylus"]
 	path = bundle/vim-stylus
 	url = https://github.com/wavded/vim-stylus.git
+[submodule "bundle/solarized-vim"]
+	path = bundle/solarized-vim
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "bundle/jellybeans-vim"]
+	path = bundle/jellybeans-vim
+	url = https://github.com/nanotech/jellybeans.vim.git
