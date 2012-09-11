@@ -83,8 +83,6 @@ set nomore
 
 " colors{{{
 let &t_Co=256
-set background=dark
-"colorscheme solarized
 color tomorrow-night
 "}}}
 

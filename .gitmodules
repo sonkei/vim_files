@@ -16,9 +16,6 @@
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = https://github.com/ihacklog/tabular.git
-[submodule "bundle/vim-after-syntax-perl"]
-	path = bundle/vim-after-syntax-perl
-	url = https://github.com/trapd00r/vim-after-syntax-perl.git
 [submodule "bundle/vim-ansicolors"]
 	path = bundle/vim-ansicolors
 	url = https://github.com/trapd00r/vim-ansicolors.git
@@ -115,6 +112,6 @@
 [submodule "bundle/solarized-vim"]
 	path = bundle/solarized-vim
 	url = https://github.com/altercation/vim-colors-solarized.git
-[submodule "bundle/jellybeans-vim"]
-	path = bundle/jellybeans-vim
-	url = https://github.com/nanotech/jellybeans.vim.git
+[submodule "bundle/snipmate"]
+	path = bundle/snipmate
+	url = https://github.com/msanders/snipmate.vim.git
