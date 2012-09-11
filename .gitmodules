@@ -76,9 +76,6 @@
 [submodule "bundle/vim-x11colors"]
 	path = bundle/vim-x11colors
 	url = https://github.com/trapd00r/x11colors.vim.git
-[submodule "bundle/vim-zencoding"]
-	path = bundle/vim-zencoding
-	url = https://github.com/mattn/zencoding-vim.git
 [submodule "bundle/vim-pathogen"]
 	path = bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
