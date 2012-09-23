@@ -100,9 +100,6 @@
 [submodule "bundle/vim-clojure"]
 	path = bundle/vim-clojure
 	url = https://github.com/gaverhae/vimclojure.git
-[submodule "bundle/dwm-vim"]
-	path = bundle/dwm-vim
-	url = https://github.com/tpope/dwm.vim.git
 [submodule "bundle/base16-vim"]
 	path = bundle/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git
