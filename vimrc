@@ -77,12 +77,26 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+set showtabline=2
+
+" Indent if we're at the beginning of a line. Else, do completion.
+function! InsertTabWrapper()
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-p>"
+  endif
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <s-tab> <c-n>
 
 set nomore
 "}}}
 
 " colors{{{
 let &t_Co=256
+set background=dark
 color tomorrow-night
 "}}}
 
@@ -166,4 +180,4 @@ let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
   \ }
 
-set shell=/bin/sh
+set shell=bash
