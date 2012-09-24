@@ -106,7 +106,7 @@ match OverLength /\%81v.\+/
 "}}}
 
 "Mappings {{{
-let mapleader = ';' "mapleader to ;
+let mapleader = ',' "mapleader to ,
 
 noremap <silent><Leader>/ :nohls<CR>
 
