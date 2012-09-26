@@ -110,6 +110,9 @@ let mapleader = ',' "mapleader to ,
 
 noremap <silent><Leader>/ :nohls<CR>
 
+" CTAGS
+map <silent> <Leader>rt :!bundle list --paths=true \| xargs ctags --exclude=.git --exclude=log -R *<CR><CR>
+
 " NERDTree
 map <F3> :NERDTreeToggle<CR>
 
@@ -173,6 +176,11 @@ fu! SetCursorPosition()
 endfu
 "}}}
 
+"}}}
+
+" Rspec matching {{{
+autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
+highlight def link rubyRspec Function
 "}}}
 
 let g:ctrlp_prompt_mappings = {
