@@ -97,7 +97,8 @@ set nomore
 " colors{{{
 let &t_Co=256
 set background=dark
-color tomorrow-night
+"color tomorrow-night
+color grb256
 "}}}
 
 " Highlight characters past 80c {{{
