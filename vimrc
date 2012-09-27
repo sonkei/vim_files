@@ -96,8 +96,8 @@ set nomore
 
 " colors{{{
 let &t_Co=256
-set background=dark
-"color tomorrow-night
+"set background=dark
+color tomorrow-night
 color grb256
 "}}}
 
