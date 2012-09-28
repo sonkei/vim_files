@@ -103,6 +103,3 @@
 [submodule "bundle/vim-endwise"]
 	path = bundle/vim-endwise
 	url = https://github.com/tpope/vim-endwise.git
-[submodule "bundle/vim-tomorrow"]
-	path = bundle/vim-tomorrow
-	url = https://github.com/sonkei/vim-tomorrow-theme.git
