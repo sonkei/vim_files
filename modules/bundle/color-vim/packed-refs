@@ -1,0 +1,4 @@
+# pack-refs with: peeled 
+402dead0de6d0d5edba77cf8977e10d27a86623e refs/remotes/origin/devel
+5df3f8734d8e3fed0b20cca80dd8a6c971bf1de2 refs/remotes/origin/gh-pages
+10b38da3a8b4fabc1a4e76f4659a5752100ec4ec refs/remotes/origin/master

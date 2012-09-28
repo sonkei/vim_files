@@ -1,0 +1,29 @@
+0000000000000000000000000000000000000000 69a265a2e0370bb80dfe2840a91a8eae7fe2415d chris bailey <chris@stillawake.me> 1342196513 -0400	clone: from https://github.com/sonkei/vim_files.git
+69a265a2e0370bb80dfe2840a91a8eae7fe2415d 69a265a2e0370bb80dfe2840a91a8eae7fe2415d chris bailey <chris@stillawake.me> 1342664669 -0400	checkout: moving from master to osx
+69a265a2e0370bb80dfe2840a91a8eae7fe2415d 69a265a2e0370bb80dfe2840a91a8eae7fe2415d chris bailey <chris@stillawake.me> 1342664764 -0400	checkout: moving from osx to master
+69a265a2e0370bb80dfe2840a91a8eae7fe2415d b7c5a55b731c635d5aa2fe758a6bb211d082a477 chris bailey <chris@stillawake.me> 1344444703 -0400	commit: mac changes
+b7c5a55b731c635d5aa2fe758a6bb211d082a477 dea727cb7532e2c5aa23575049d49eed70f5eb36 chris bailey <chris@stillawake.me> 1344609665 -0400	commit: updated bundles
+dea727cb7532e2c5aa23575049d49eed70f5eb36 dea727cb7532e2c5aa23575049d49eed70f5eb36 chris bailey <chris@stillawake.me> 1344609670 -0400	checkout: moving from master to osx
+dea727cb7532e2c5aa23575049d49eed70f5eb36 5a35d3401f3c4d211edb742333ec1ae8a318d7ee chris bailey <chris@subcu.lt> 1345351920 -0400	commit: updates
+5a35d3401f3c4d211edb742333ec1ae8a318d7ee caf56eeebe87fea8318f9ce6ef691b7fa40668c3 chris bailey <chris@subcu.lt> 1347372783 -0400	commit: cleaning up packages
+caf56eeebe87fea8318f9ce6ef691b7fa40668c3 8de790f5f7d2a2473e26ed7181f082dd58d69c8e chris bailey <chris@subcu.lt> 1347372980 -0400	commit: remove scala, stylus,solarized
+8de790f5f7d2a2473e26ed7181f082dd58d69c8e ecad164bdd1e6f0cba3ceb2d8dd6c080bef0aaf5 chris bailey <chris@subcu.lt> 1347373192 -0400	commit: remove zencoding
+ecad164bdd1e6f0cba3ceb2d8dd6c080bef0aaf5 b0c75790be34548d83c973a4906c055467846086 chris bailey <chris@subcu.lt> 1347373406 -0400	commit: add capybara-vim
+b0c75790be34548d83c973a4906c055467846086 df5726cfe0615e4f2f6fc45588c61e2791c8b502 chris bailey <chris@subcu.lt> 1347373415 -0400	revert: Revert "add capybara-vim"
+df5726cfe0615e4f2f6fc45588c61e2791c8b502 142dd2658e9110816fe7fc2a1d69e8eaef7f5fa1 chris bailey <chris@subcu.lt> 1347373429 -0400	revert: Revert "Revert "add capybara-vim""
+142dd2658e9110816fe7fc2a1d69e8eaef7f5fa1 f77e640d4a5a3c85b17fdda9717cc6fd3e2173d3 chris bailey <chris@subcu.lt> 1347373429 -0400	revert: Revert "add capybara-vim"
+f77e640d4a5a3c85b17fdda9717cc6fd3e2173d3 ea340af39468b22085ad6013df5240d0dee1bb20 chris bailey <chris@subcu.lt> 1347373468 -0400	commit: vim-capybara
+ea340af39468b22085ad6013df5240d0dee1bb20 b3252a045f737e80412d2461e97766f37b265bbb chris bailey <chris@subcu.lt> 1347420136 -0400	commit: Remove snipmate and snippets
+b3252a045f737e80412d2461e97766f37b265bbb 77b4981694b6937b2e394bbdbe938148c7f19e3c chris bailey <chris@subcu.lt> 1347521536 -0400	commit: add dwm.vim
+77b4981694b6937b2e394bbdbe938148c7f19e3c 536db0c0ef38d19d639c0e7e3c3d9725d2655af7 chris bailey <chris@subcu.lt> 1348418151 -0400	commit: use gary bernhardt tab settings
+536db0c0ef38d19d639c0e7e3c3d9725d2655af7 490fdd58d3238778f730dd0b0a11fcdccaa936f2 chris bailey <chris@subcu.lt> 1348418165 -0400	commit: update bundles
+490fdd58d3238778f730dd0b0a11fcdccaa936f2 de0837b9f106e731ce937c93e60ab6368dc402fc chris bailey <chris@subcu.lt> 1348505814 -0400	commit: use , as leader
+de0837b9f106e731ce937c93e60ab6368dc402fc 04e64eaf36298f44846f995eb199217ac702958c chris bailey <chris@subcu.lt> 1348675416 -0400	commit: rspec matching
+04e64eaf36298f44846f995eb199217ac702958c a0eb4c6a33eaadda22ee017c6cc4857512594c69 chris bailey <chris@subcu.lt> 1348675813 -0400	commit: colorscheme changed to grb256
+a0eb4c6a33eaadda22ee017c6cc4857512594c69 b1fb2c6252ea68a26bd60fa88ff4ff84c21a2cda chris bailey <chris@subcu.lt> 1348675886 -0400	commit: submodule updates
+b1fb2c6252ea68a26bd60fa88ff4ff84c21a2cda d3e7b38b2ddfdffe7ed93cab3c9fc9e1c10b54ca chris bailey <chris@subcu.lt> 1348704583 -0400	commit: remove endwise
+d3e7b38b2ddfdffe7ed93cab3c9fc9e1c10b54ca 4a5d26e8319b48d26d6d7809eafeb4fa725bf570 chris bailey <chris@subcu.lt> 1348704627 -0400	commit: remove empty dwm-vim dir
+4a5d26e8319b48d26d6d7809eafeb4fa725bf570 194539b5771464b9116db8a2d58b14f4d77b1e68 chris bailey <chris@subcu.lt> 1348705002 -0400	commit: submodule updates
+194539b5771464b9116db8a2d58b14f4d77b1e68 5f5f455e140f2bff8bf05b5049332ae9c28ec380 chris bailey <chris@subcu.lt> 1348848877 -0400	commit: use tomorrow-theme bundle
+5f5f455e140f2bff8bf05b5049332ae9c28ec380 0ab1eb544f76ff37527f154ded9a087959878110 chris bailey <chris@subcu.lt> 1348848971 -0400	commit: remove tmrtheme from colors
+0ab1eb544f76ff37527f154ded9a087959878110 e94cf6ecaa88ca151817745998ee0035d33a7f50 chris bailey <chris@subcu.lt> 1348849016 -0400	commit: bundle updates

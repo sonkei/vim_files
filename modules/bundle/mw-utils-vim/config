@@ -1,0 +1,13 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	worktree = /Users/chris/.vim/bundle/mw-utils-vim
+	ignorecase = true
+[remote "origin"]
+	fetch = +refs/heads/*:refs/remotes/origin/*
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
