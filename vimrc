@@ -96,9 +96,9 @@ set nomore
 
 " colors{{{
 let &t_Co=256
-"set background=dark
-color tomorrow-night
-color grb256
+set background=dark
+color Tomorrow-night
+"color grb256
 "}}}
 
 " Highlight characters past 80c {{{
@@ -184,9 +184,9 @@ autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_s
 highlight def link rubyRspec Function
 "}}}
 
-let g:ctrlp_prompt_mappings = {
-  \ 'AcceptSelection("e")': [],
-  \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
-  \ }
+"let g:ctrlp_prompt_mappings = {
+"  \ 'AcceptSelection("e")': [],
+"  \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
+"  \ }
 
 set shell=bash
