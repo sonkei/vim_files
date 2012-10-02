@@ -96,9 +96,11 @@ set nomore
 
 " colors{{{
 let &t_Co=256
+let base16colorspace=256  " Access colors present in 256 colorspace
 set background=dark
-color Tomorrow-night
+"color Tomorrow-night
 "color grb256
+color base16-tomorrow
 "}}}
 
 " Highlight characters past 80c {{{
