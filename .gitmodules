@@ -112,3 +112,6 @@
 [submodule "bundle/vim-delimitmate"]
 	path = bundle/vim-delimitmate
 	url = https://github.com/Raimondi/delimitMate.git
+[submodule "bundle/vim-jasmine"]
+	path = bundle/vim-jasmine
+	url = https://github.com/claco/jasmine.vim.git
