@@ -186,9 +186,4 @@ autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_s
 highlight def link rubyRspec Function
 "}}}
 
-"let g:ctrlp_prompt_mappings = {
-"  \ 'AcceptSelection("e")': [],
-"  \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
-"  \ }
-
 set shell=bash
