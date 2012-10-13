@@ -109,3 +109,6 @@
 [submodule "bundle/vim-jasmine"]
 	path = bundle/vim-jasmine
 	url = https://github.com/claco/jasmine.vim.git
+[submodule "bundle/vim-tomorrow-theme"]
+	path = bundle/vim-tomorrow-theme
+	url = https://github.com/chriskempson/vim-tomorrow-theme.git
