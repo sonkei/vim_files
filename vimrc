@@ -28,7 +28,7 @@ set t_Co=256
 set textwidth=80
 set title
 set ttyfast
-set cmdheight=2
+set cmdheight=1
 
 set nobackup
 set nocscopeverbose
@@ -96,11 +96,12 @@ set nomore
 
 " colors{{{
 let &t_Co=256
-"let base16colorspace=256  " Access colors present in 256 colorspace
+let base16colorspace=256  " Access colors present in 256 colorspace
 set background=dark
 "color Tomorrow-Night
-color grb256
-"color base16-tomorrow
+"color grb256
+color base16-tomorrow
+set guifont=Inconsolata:h16
 "color base16-ocean
 "}}}
 
