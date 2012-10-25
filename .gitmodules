@@ -64,12 +64,6 @@
 [submodule "bundle/vim-tomorrow-theme"]
 	path = bundle/vim-tomorrow-theme
 	url = https://github.com/chriskempson/vim-tomorrow-theme.git
-[submodule "bundle/vim-rvm"]
-	path = bundle/vim-rvm
-	url = https://github.com/tpope/vim-rvm.git
-[submodule "bundle/vim-erlang"]
-	path = bundle/vim-erlang
-	url = https://github.com/oscarh/vimerl.git
 [submodule "bundle/vim-conque"]
 	path = bundle/vim-conque
 	url = https://github.com/huobazi/conque.git
