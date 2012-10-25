@@ -64,9 +64,6 @@
 [submodule "bundle/vim-tomorrow-theme"]
 	path = bundle/vim-tomorrow-theme
 	url = https://github.com/chriskempson/vim-tomorrow-theme.git
-[submodule "bundle/vim-conque"]
-	path = bundle/vim-conque
-	url = https://github.com/huobazi/conque.git
-[submodule "bundle/vim-ruby-conque"]
-	path = bundle/vim-ruby-conque
-	url = https://github.com/skwp/vim-ruby-conque.git
+[submodule "bundle/vim-vroom"]
+	path = bundle/vim-vroom
+	url = https://github.com/skalnik/vim-vroom.git
