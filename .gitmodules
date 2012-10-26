@@ -22,9 +22,6 @@
 [submodule "bundle/vim-powerline"]
 	path = bundle/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
-[submodule "bundle/vim-ragtag"]
-	path = bundle/vim-ragtag
-	url = https://github.com/tpope/vim-ragtag.git
 [submodule "bundle/vim-rails"]
 	path = bundle/vim-rails
 	url = https://github.com/tpope/vim-rails.git
@@ -58,3 +55,6 @@
 [submodule "bundle/vim-vroom"]
 	path = bundle/vim-vroom
 	url = https://github.com/skalnik/vim-vroom.git
+[submodule "bundle/solarized"]
+	path = bundle/solarized
+	url = https://github.com/altercation/vim-colors-solarized.git

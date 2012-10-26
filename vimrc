@@ -96,12 +96,14 @@ set nomore
 
 " colors{{{
 let &t_Co=256
-let base16colorspace=256  " Access colors present in 256 colorspace
-set background=dark
+"let base16colorspace=256  " Access colors present in 256 colorspace
+set background=light
 "color Tomorrow-Night
-"color grb256
-color base16-tomorrow
-set guifont=Inconsolata:h16
+"color base16-tomorrow
+"color base16-default
+"color Tomorrow
+color solarized
+"set guifont=Inconsolata:h16
 "color base16-ocean
 "}}}
 
@@ -113,7 +115,11 @@ match OverLength /\%81v.\+/
 "Mappings {{{
 let mapleader = ',' "mapleader to ,
 
-noremap <silent><Leader>/ :nohls<CR>
+"noremap <silent><Leader>/ :nohls<CR>
+function! MapCR()
+  nnoremap <cr> :nohlsearch<cr>
+endfunction
+call MapCR()
 
 " CTAGS
 map <silent> <Leader>rt :!bundle list --paths=true \| xargs ctags --exclude=.git --exclude=log -R *<CR><CR>
@@ -172,11 +178,39 @@ fu! SetCursorPosition()
 endfu
 "}}}
 
+" rename current file (stolen from grb) {{{
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <leader>n :call RenameFile()<cr>
+"}}}
+
+" ctrl p (adjusted commandt from grb) {{{
+map <leader>gv :CtrlP app/views<cr>
+map <leader>gc :CtrlP app/controllers<cr>
+map <leader>gm :CtrlP app/models<cr>
+map <leader>gh :CtrlP app/helpers<cr>
+map <leader>gl :CtrlP lib<cr>
+map <leader>gp :CtrlP public<cr>
+map <leader>gs :CtrlP public/stylesheets/sass<cr>
+map <leader>gf :CtrlP features<cr>
+" }}}
 "}}}
 
 " Rspec matching {{{
 autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
 highlight def link rubyRspec Function
+"}}}
+
+" Powerline theme settings {{{
+let g:Powerline_theme="skwp"
+let g:Powerline_colorscheme='skwp'
 "}}}
 
 set shell=bash
