@@ -29,6 +29,7 @@ set textwidth=80
 set title
 set ttyfast
 set cmdheight=1
+set winwidth=81
 
 set nobackup
 set nocscopeverbose
@@ -77,7 +78,7 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-set showtabline=2
+set showtabline=1
 
 " Indent if we're at the beginning of a line. Else, do completion.
 function! InsertTabWrapper()
