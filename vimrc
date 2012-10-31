@@ -93,6 +93,10 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
 set nomore
+
+" slime settings
+let g:slime_target = "tmux"
+
 "}}}
 
 " colors{{{
