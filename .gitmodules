@@ -16,9 +16,6 @@
 [submodule "bundle/vim-haml"]
 	path = bundle/vim-haml
 	url = https://github.com/tpope/vim-haml.git
-[submodule "bundle/vim-markdown"]
-	path = bundle/vim-markdown
-	url = https://github.com/plasticboy/vim-markdown.git
 [submodule "bundle/vim-powerline"]
 	path = bundle/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
@@ -67,3 +64,9 @@
 [submodule "bundle/elixir-vim"]
 	path = bundle/elixir-vim
 	url = https://github.com/elixir-lang/vim-elixir.git
+[submodule "bundle/xterm-color-table-vim"]
+	path = bundle/xterm-color-table-vim
+	url = https://github.com/guns/xterm-color-table.vim.git
+[submodule "bundle/markdown-jekyll-vim"]
+	path = bundle/markdown-jekyll-vim
+	url = https://github.com/PProvost/vim-markdown-jekyll.git
