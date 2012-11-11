@@ -101,13 +101,13 @@ let g:slime_target = "tmux"
 
 " colors{{{
 let &t_Co=256
-"let base16colorspace=256  " Access colors present in 256 colorspace
-set background=light
+let base16colorspace=256  " Access colors present in 256 colorspace
+set background=dark
 "color Tomorrow-Night
-"color base16-tomorrow
+color base16-tomorrow
 "color base16-default
 "color Tomorrow
-color solarized
+"color solarized
 "set guifont=Inconsolata:h16
 "color base16-ocean
 "}}}
