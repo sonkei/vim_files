@@ -214,8 +214,8 @@ highlight def link rubyRspec Function
 "}}}
 
 " Powerline theme settings {{{
-let g:Powerline_theme="skwp"
-let g:Powerline_colorscheme='skwp'
+"let g:Powerline_theme="skwp"
+"let g:Powerline_colorscheme='skwp'
 "}}}
 
 set shell=bash
