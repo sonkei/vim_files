@@ -28,7 +28,7 @@ set t_Co=256
 set textwidth=80
 set title
 set ttyfast
-set cmdheight=1
+set cmdheight=2
 set winwidth=81
 
 set nobackup
@@ -96,6 +96,10 @@ set nomore
 
 " slime settings
 let g:slime_target = "tmux"
+
+" langauge specific tab spacing
+au FileType python setl sw=4 ts=4 sts=4 et
+au FileType ruby setl sw=2 ts=2 sts=2 et
 
 "}}}
 
@@ -197,14 +201,14 @@ map <leader>n :call RenameFile()<cr>
 "}}}
 
 " ctrl p (adjusted commandt from grb) {{{
-map <leader>gv :CtrlP app/views<cr>
-map <leader>gc :CtrlP app/controllers<cr>
-map <leader>gm :CtrlP app/models<cr>
-map <leader>gh :CtrlP app/helpers<cr>
-map <leader>gl :CtrlP lib<cr>
-map <leader>gp :CtrlP public<cr>
-map <leader>gs :CtrlP public/stylesheets/sass<cr>
-map <leader>gf :CtrlP features<cr>
+map <leader>gv :CtrlPClearCache<cr>:CtrlP app/views<cr>
+map <leader>gc :CtrlPClearCache<cr>:CtrlP app/controllers<cr>
+map <leader>gm :CtrlPClearCache<cr>:CtrlP app/models<cr>
+map <leader>gh :CtrlPClearCache<cr>:CtrlP app/helpers<cr>
+map <leader>gl :CtrlPClearCache<cr>:CtrlP lib<cr>
+map <leader>gp :CtrlPClearCache<cr>:CtrlP public<cr>
+map <leader>gs :CtrlPClearCache<cr>:CtrlP public/stylesheets/sass<cr>
+map <leader>gf :CtrlPClearCache<cr>:CtrlP features<cr>
 " }}}
 "}}}
 
@@ -216,6 +220,7 @@ highlight def link rubyRspec Function
 " Powerline theme settings {{{
 "let g:Powerline_theme="skwp"
 "let g:Powerline_colorscheme='skwp'
+"let g:Powerline_symbols = 'fancy'
 "}}}
 
 set shell=bash
