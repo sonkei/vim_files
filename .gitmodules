@@ -103,3 +103,6 @@
 [submodule "bundle/vim-sleuth"]
 	path = bundle/vim-sleuth
 	url = https://github.com/tpope/vim-sleuth.git
+[submodule "bundle/vim-mustache"]
+	path = bundle/vim-mustache
+	url = git@github.com:sonkei/mustache.vim.git
