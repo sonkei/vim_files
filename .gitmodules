@@ -103,3 +103,6 @@
 [submodule "bundle/python-vim"]
 	path = bundle/python-vim
 	url = https://github.com/agrimaldi/python.vim-dvasiliev.git
+[submodule "bundle/vim-airline"]
+	path = bundle/vim-airline
+	url = https://github.com/bling/vim-airline.git
