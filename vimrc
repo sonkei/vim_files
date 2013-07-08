@@ -217,10 +217,4 @@ autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_s
 highlight def link rubyRspec Function
 "}}}
 
-" Powerline theme settings {{{
-"let g:Powerline_theme="skwp"
-"let g:Powerline_colorscheme='skwp'
-"let g:Powerline_symbols = 'fancy'
-"}}}
-
 set shell=bash
