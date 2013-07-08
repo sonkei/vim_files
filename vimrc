@@ -227,6 +227,8 @@ let g:airline_linecolumn_prefix = '¶ '
 
 " vim-unite {{{
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <leader>r :<C-u>Unite -start-insert file_rec<CR>
+nnoremap <C-p> :Unite -start-insert file_rec/async<CR>
+nnoremap <space>/ :Unite grep:.<CR>
 " }}}
+
 set shell=bash
