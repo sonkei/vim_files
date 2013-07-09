@@ -103,9 +103,3 @@
 [submodule "bundle/vim-airline"]
 	path = bundle/vim-airline
 	url = https://github.com/bling/vim-airline.git
-[submodule "bundle/vim-unite"]
-	path = bundle/vim-unite
-	url = https://github.com/Shougo/unite.vim.git
-[submodule "bundle/vimproc"]
-	path = bundle/vimproc
-	url = https://github.com/Shougo/vimproc.vim.git

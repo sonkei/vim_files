@@ -225,10 +225,4 @@ let g:airline_paste_symbol = 'ρ'
 let g:airline_linecolumn_prefix = '¶ '
 "}}}
 
-" vim-unite {{{
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <C-p> :Unite -start-insert file_rec/async:!<CR>
-nnoremap <space>/ :Unite grep:.<CR>
-" }}}
-
 set shell=bash
