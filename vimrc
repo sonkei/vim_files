@@ -218,7 +218,7 @@ highlight def link rubyRspec Function
 "}}}
 
 " Airline settings {{{
-let g:airline_theme='dark'
+let g:airline_theme='solarized'
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀'
 let g:airline_paste_symbol = 'ρ'
@@ -227,7 +227,7 @@ let g:airline_linecolumn_prefix = '¶ '
 
 " vim-unite {{{
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <C-p> :Unite -start-insert file_rec/async<CR>
+nnoremap <C-p> :Unite -start-insert file_rec/async:!<CR>
 nnoremap <space>/ :Unite grep:.<CR>
 " }}}
 
