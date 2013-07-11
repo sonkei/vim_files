@@ -209,6 +209,10 @@ map <leader>gl :CtrlPClearCache<cr>:CtrlP lib<cr>
 map <leader>gp :CtrlPClearCache<cr>:CtrlP public<cr>
 map <leader>gs :CtrlPClearCache<cr>:CtrlP public/stylesheets/sass<cr>
 map <leader>gf :CtrlPClearCache<cr>:CtrlP features<cr>
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\v[\/](vendor\/ruby)$',
+  \ }
 " }}}
 "}}}
 
