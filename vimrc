@@ -3,15 +3,49 @@
 "--------------initial-setup-------------
 "----------------------------------------
 
-" Pathogen Magic {{{
-call pathogen#infect()
+" vundle {{{
+set nocompatible
 syntax on
 filetype off
-filetype plugin indent on
-"}}}
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+" packages
+Bundle "tpope/vim-markdown"
+Bundle "tpope/vim-fugitive"
+Bundle "tpope/vim-sensible"
+Bundle "tpope/vim-rails"
+Bundle "tpope/vim-haml"
+Bundle "tpope/vim-surround"
+Bundle "tpope/vim-bundler"
+Bundle "tpope/vim-endwise"
+Bundle "tpope/vim-sleuth"
+
+Bundle "mattn/gist-vim"
+Bundle "kchmck/vim-coffee-script"
+Bundle "hail2u/vim-css3-syntax"
+Bundle "othree/html5.vim"
+Bundle "vim-ruby/vim-ruby"
+Bundle "myusuf3/numbers.vim"
+Bundle "chriskempson/base16-vim"
+Bundle "Raimondi/delimitMate"
+Bundle "chriskempson/vim-tomorrow-theme"
+Bundle "skalnik/vim-vroom"
+Bundle "jpalardy/vim-slime"
+Bundle "mileszs/ack.vim"
+Bundle "pangloss/vim-javascript"
+Bundle "nono/vim-handlebars"
+Bundle "digitaltoad/vim-jade"
+Bundle "bling/vim-airline"
+Bundle "juvenn/mustache.vim"
+Bundle "Valloric/YouCompleteMe"
+" }}}
 
 " options {{{
-set nocompatible
+filetype plugin indent on
 set backspace=indent,eol,start    " allow backspacing over auto indent
 set hidden
 set wildmenu
