@@ -41,6 +41,7 @@ Bundle "nono/vim-handlebars"
 Bundle "digitaltoad/vim-jade"
 Bundle "bling/vim-airline"
 Bundle "juvenn/mustache.vim"
+Bundle "kien/ctrlp.vim"
 Bundle "Valloric/YouCompleteMe"
 " }}}
 
