@@ -24,6 +24,9 @@ Bundle "tpope/vim-bundler"
 Bundle "tpope/vim-endwise"
 Bundle "tpope/vim-sleuth"
 
+Bundle "altercation/vim-colors-solarized"
+Bundle "moll/vim-node"
+Bundle "groenewege/vim-less"
 Bundle "mattn/gist-vim"
 Bundle "kchmck/vim-coffee-script"
 Bundle "hail2u/vim-css3-syntax"
@@ -31,7 +34,7 @@ Bundle "othree/html5.vim"
 Bundle "vim-ruby/vim-ruby"
 Bundle "myusuf3/numbers.vim"
 Bundle "chriskempson/base16-vim"
-Bundle "Raimondi/delimitMate"
+Bundle "jiangmiao/auto-pairs"
 Bundle "chriskempson/vim-tomorrow-theme"
 Bundle "skalnik/vim-vroom"
 Bundle "jpalardy/vim-slime"
@@ -43,6 +46,8 @@ Bundle "bling/vim-airline"
 Bundle "juvenn/mustache.vim"
 Bundle "kien/ctrlp.vim"
 Bundle "Valloric/YouCompleteMe"
+Bundle "elixir-lang/vim-elixir"
+Bundle "Yggdroot/indentLine"
 " }}}
 
 " options {{{
@@ -141,10 +146,11 @@ au FileType ruby setl sw=2 ts=2 sts=2 et
 " colors{{{
 let &t_Co=256
 let base16colorspace=256  " Access colors present in 256 colorspace
-set background=dark
+
+set background=light
 "color Tomorrow-Night
 color base16-tomorrow
-"color base16-default
+"color base16-eighties
 "color Tomorrow
 "color solarized
 "set guifont=Inconsolata:h16
@@ -245,9 +251,7 @@ map <leader>gp :CtrlPClearCache<cr>:CtrlP public<cr>
 map <leader>gs :CtrlPClearCache<cr>:CtrlP public/stylesheets/sass<cr>
 map <leader>gf :CtrlPClearCache<cr>:CtrlP features<cr>
 
-let g:ctrlp_custom_ignore = {
-  \ 'dir': '\v[\/](vendor\/ruby)$',
-  \ }
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|node_modules|vendor\/ruby)$'
 " }}}
 "}}}
 
@@ -257,11 +261,13 @@ highlight def link rubyRspec Function
 "}}}
 
 " Airline settings {{{
-let g:airline_theme='solarized'
+let g:airline_theme='wombat'
 let g:airline_left_sep = ''
 let g:airline_right_sep = '◀'
 let g:airline_paste_symbol = 'ρ'
 let g:airline_linecolumn_prefix = '¶ '
+let g:airline_enable_branch=1
 "}}}
+
 
 set shell=bash
