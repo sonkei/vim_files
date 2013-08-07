@@ -24,6 +24,7 @@ Bundle "tpope/vim-bundler"
 Bundle "tpope/vim-endwise"
 Bundle "tpope/vim-sleuth"
 
+Bundle 'thoughtbot/vim-rspec'
 Bundle "altercation/vim-colors-solarized"
 Bundle "moll/vim-node"
 Bundle "groenewege/vim-less"
@@ -149,10 +150,10 @@ let base16colorspace=256  " Access colors present in 256 colorspace
 
 set background=light
 "color Tomorrow-Night
-color base16-tomorrow
+"color base16-tomorrow
 "color base16-eighties
 "color Tomorrow
-"color solarized
+color solarized
 "set guifont=Inconsolata:h16
 "color base16-ocean
 "}}}
@@ -261,7 +262,7 @@ highlight def link rubyRspec Function
 "}}}
 
 " Airline settings {{{
-let g:airline_theme='wombat'
+let g:airline_theme='solarized'
 let g:airline_left_sep = ''
 let g:airline_right_sep = '◀'
 let g:airline_paste_symbol = 'ρ'
@@ -269,5 +270,14 @@ let g:airline_linecolumn_prefix = '¶ '
 let g:airline_enable_branch=1
 "}}}
 
+" vim-rspec {{{
+map <leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR><Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+" }}}
 
 set shell=bash
