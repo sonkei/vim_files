@@ -24,6 +24,7 @@ Bundle "tpope/vim-bundler"
 Bundle "tpope/vim-endwise"
 Bundle "tpope/vim-sleuth"
 
+Bundle "scrooloose/syntastic"
 Bundle 'thoughtbot/vim-rspec'
 Bundle "altercation/vim-colors-solarized"
 Bundle "moll/vim-node"
@@ -36,19 +37,23 @@ Bundle "vim-ruby/vim-ruby"
 Bundle "myusuf3/numbers.vim"
 Bundle "chriskempson/base16-vim"
 Bundle "jiangmiao/auto-pairs"
-Bundle "chriskempson/vim-tomorrow-theme"
+"Bundle "chriskempson/vim-tomorrow-theme"
+Bundle "sonkei/vim-tomorrow-theme"
 Bundle "skalnik/vim-vroom"
 Bundle "jpalardy/vim-slime"
 Bundle "mileszs/ack.vim"
-Bundle "pangloss/vim-javascript"
+"Bundle "pangloss/vim-javascript"
+Bundle "jelera/vim-javascript-syntax"
+Bundle "othree/javascript-libraries-syntax.vim"
 Bundle "nono/vim-handlebars"
 Bundle "digitaltoad/vim-jade"
 Bundle "bling/vim-airline"
 Bundle "juvenn/mustache.vim"
 Bundle "kien/ctrlp.vim"
 Bundle "Valloric/YouCompleteMe"
-Bundle "elixir-lang/vim-elixir"
 Bundle "Yggdroot/indentLine"
+"Bundle "mhinz/vim-signify"
+Bundle 'airblade/vim-gitgutter'
 " }}}
 
 " options {{{
@@ -149,11 +154,11 @@ let &t_Co=256
 let base16colorspace=256  " Access colors present in 256 colorspace
 
 set background=light
-"color Tomorrow-Night
+color Tomorrow-Night
 "color base16-tomorrow
 "color base16-eighties
 "color Tomorrow
-color solarized
+"color solarized
 "set guifont=Inconsolata:h16
 "color base16-ocean
 "}}}
@@ -262,7 +267,7 @@ highlight def link rubyRspec Function
 "}}}
 
 " Airline settings {{{
-let g:airline_theme='solarized'
+let g:airline_theme='tomorrow'
 let g:airline_left_sep = ''
 let g:airline_right_sep = '◀'
 let g:airline_paste_symbol = 'ρ'
@@ -279,5 +284,8 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 " }}}
+
+let g:used_javascript_libs = 'underscore'
+let g:airline_enable_syntastic=1
 
 set shell=bash
