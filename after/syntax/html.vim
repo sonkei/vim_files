@@ -78,7 +78,6 @@ syn include @htmlCss syntax/css/css3-multicol.vim
 syn include @htmlCss syntax/css/css3-preslev.vim
 syn include @htmlCss syntax/css/css3-ruby.vim
 syn include @htmlCss syntax/css/css3-selectors.vim
-syn include @htmlCss syntax/css/css3-text.vim
 syn include @htmlCss syntax/css/css3-transforms.vim
 syn include @htmlCss syntax/css/css3-transitions.vim
 syn include @htmlCss syntax/css/css3-ui.vim
