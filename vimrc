@@ -45,7 +45,6 @@ Bundle "moll/vim-node"
 Bundle "groenewege/vim-less"
 Bundle "hail2u/vim-css3-syntax"
 Bundle "othree/html5.vim"
-Bundle "myusuf3/numbers.vim"
 Bundle "chriskempson/base16-vim"
 Bundle "digitaltoad/vim-jade"
 Bundle "nono/vim-handlebars"
@@ -90,6 +89,7 @@ set listchars=trail:-,tab:>-,eol:¬,nbsp:%,extends:>,precedes:<
 set dy+=lastline
 set dy+=uhex
 set number
+set relativenumber
 
 set timeout
 set timeoutlen=3000
