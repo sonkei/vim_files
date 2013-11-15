@@ -25,12 +25,14 @@ Bundle "tpope/vim-sleuth"
 Bundle "tpope/vim-dispatch"
 Bundle "tpope/vim-liquid"
 
+Bundle "Shougo/neocomplcache.vim"
+Bundle "Lokaltog/vim-easymotion"
+Bundle "Blackrush/vim-gocode"
 Bundle "jnwhiteh/vim-golang"
 Bundle "mileszs/ack.vim"
 Bundle "Shougo/vimproc.vim"
 Bundle "Shougo/unite.vim"
 Bundle "bling/vim-airline"
-Bundle "Valloric/YouCompleteMe"
 Bundle "Yggdroot/indentLine"
 Bundle 'airblade/vim-gitgutter'
 Bundle "jiangmiao/auto-pairs"
@@ -52,6 +54,7 @@ Bundle "cakebaker/scss-syntax.vim"
 "Bundle "othree/javascript-libraries-syntax.vim"
 Bundle "pangloss/vim-javascript"
 Bundle "jelera/vim-javascript-syntax"
+Bundle "marijnh/tern_for_vim"
 Bundle "kchmck/vim-coffee-script"
 " }}}
 
@@ -122,6 +125,7 @@ set expandtab
 set showtabline=1
 
 " Indent if we're at the beginning of a line. Else, do completion.
+set omnifunc=syntaxcomplete#Complete
 function! InsertTabWrapper()
   let col = col('.') - 1
   if !col || getline('.')[col - 1] !~ '\k'
@@ -249,19 +253,6 @@ endfunction
 map <leader>n :call RenameFile()<cr>
 "}}}
 
-" ctrl p (adjusted commandt from grb) {{{
-"map <leader>gv :CtrlPClearCache<cr>:CtrlP app/views<cr>
-"map <leader>gc :CtrlPClearCache<cr>:CtrlP app/controllers<cr>
-"map <leader>gm :CtrlPClearCache<cr>:CtrlP app/models<cr>
-"map <leader>gh :CtrlPClearCache<cr>:CtrlP app/helpers<cr>
-"map <leader>gl :CtrlPClearCache<cr>:CtrlP lib<cr>
-"map <leader>gp :CtrlPClearCache<cr>:CtrlP public<cr>
-"map <leader>gs :CtrlPClearCache<cr>:CtrlP public/stylesheets/sass<cr>
-"map <leader>gf :CtrlPClearCache<cr>:CtrlP features<cr>
-
-"let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|node_modules|vendor\/ruby|_vendor\/bundle)$'
-" }}}
-
 " unite.vim {{{
 let g:unite_enable_start_insert = 1
 let g:unite_split_rule = "botright"
@@ -375,6 +366,6 @@ let g:used_javascript_libs = 'underscore'
 let g:vroom_use_vimux = 1
 let g:vroom_clear_screen = 1
 
-let g:ycm_collect_identifiers_from_tags_files = 1
-
+let g:neocomplcache_enable_at_startup = 1
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 set shell=bash
