@@ -22,13 +22,9 @@ Bundle "tpope/vim-surround"
 Bundle "tpope/vim-bundler"
 Bundle "tpope/vim-endwise"
 Bundle "tpope/vim-sleuth"
-Bundle "tpope/vim-dispatch"
-Bundle "tpope/vim-liquid"
 
 Bundle "Shougo/neocomplcache.vim"
 Bundle "Lokaltog/vim-easymotion"
-Bundle "Blackrush/vim-gocode"
-Bundle "jnwhiteh/vim-golang"
 Bundle "mileszs/ack.vim"
 Bundle "Shougo/vimproc.vim"
 Bundle "Shougo/unite.vim"
@@ -44,18 +40,16 @@ Bundle "cvincent/vim-vroom"
 Bundle "benmills/vimux"
 Bundle "scrooloose/syntastic"
 Bundle "moll/vim-node"
-Bundle "groenewege/vim-less"
 Bundle "hail2u/vim-css3-syntax"
 Bundle "othree/html5.vim"
 Bundle "chriskempson/base16-vim"
 Bundle "digitaltoad/vim-jade"
 Bundle "nono/vim-handlebars"
-Bundle "cakebaker/scss-syntax.vim"
-"Bundle "othree/javascript-libraries-syntax.vim"
 Bundle "pangloss/vim-javascript"
+Bundle "cakebaker/scss-syntax.vim"
 Bundle "jelera/vim-javascript-syntax"
 Bundle "marijnh/tern_for_vim"
-Bundle "kchmck/vim-coffee-script"
+Bundle "wavded/vim-stylus"
 " }}}
 
 " options {{{
@@ -362,10 +356,13 @@ endfunction
 nnoremap <leader>f :call SelectaCommand("find * -type d -name ruby -name tmp -prune -o -type f", "", ":e")<cr>
 " }}}
 
-let g:used_javascript_libs = 'underscore'
 let g:vroom_use_vimux = 1
 let g:vroom_clear_screen = 1
 
+" neocomplcache settings {{{
 let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_force_overwrite_completefunc=1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"}}}
+
 set shell=bash
