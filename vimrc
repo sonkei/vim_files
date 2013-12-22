@@ -20,9 +20,11 @@ Bundle "tpope/vim-sensible"
 Bundle "tpope/vim-rails"
 Bundle "tpope/vim-surround"
 Bundle "tpope/vim-bundler"
-Bundle "tpope/vim-endwise"
 Bundle "tpope/vim-sleuth"
 
+Bundle "wting/rust.vim"
+Bundle "elixir-lang/vim-elixir"
+Bundle "kchmck/vim-coffee-script"
 Bundle "Shougo/neocomplcache.vim"
 Bundle "Lokaltog/vim-easymotion"
 Bundle "mileszs/ack.vim"
@@ -61,7 +63,6 @@ set wildignore=*.swp
 set encoding=utf-8
 set hlsearch!
 set incsearch
-set lazyredraw
 set magic
 set t_Co=256
 set textwidth=80
@@ -259,7 +260,9 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ '\.git/',
       \ 'node_modules',
       \ 'vendor\/ruby',
-      \ 'vendor\/rbx'
+      \ 'vendor\/rbx',
+      \ 'tmp\/',
+      \ 'vendor\/'
       \ ], '\|'))
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -320,7 +323,7 @@ nnoremap <C-w>m :call WindowSwapping()<CR>
 "}}}
 
 " Airline settings {{{
-let g:airline_theme='tomorrow'
+let g:airline_theme='lucius'
 let g:airline_enable_syntastic=1
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
