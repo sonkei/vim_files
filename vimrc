@@ -21,9 +21,14 @@ Bundle "tpope/vim-rails"
 Bundle "tpope/vim-surround"
 Bundle "tpope/vim-bundler"
 Bundle "tpope/vim-sleuth"
+Bundle "tpope/vim-vinegar"
 
-Bundle "wting/rust.vim"
-Bundle "elixir-lang/vim-elixir"
+Bundle "eagletmt/neco-ghc"
+Bundle "eagletmt/ghcmod-vim"
+Bundle "dag/vim2hs"
+
+Bundle "chriskempson/vim-tomorrow-theme"
+Bundle "jonathanfilip/vim-lucius"
 Bundle "kchmck/vim-coffee-script"
 Bundle "Shougo/neocomplcache.vim"
 Bundle "Lokaltog/vim-easymotion"
@@ -40,6 +45,7 @@ Bundle 'Keithbsmiley/rspec.vim'
 Bundle "vim-ruby/vim-ruby"
 Bundle "cvincent/vim-vroom"
 Bundle "benmills/vimux"
+Bundle "jpalardy/vim-slime"
 Bundle "scrooloose/syntastic"
 Bundle "moll/vim-node"
 Bundle "hail2u/vim-css3-syntax"
@@ -105,6 +111,7 @@ set smartcase
 
 set foldmethod=marker
 set foldcolumn=1
+set nofoldenable
 
 set noautochdir
 
@@ -144,9 +151,11 @@ au FileType ruby setl sw=2 ts=2 sts=2 et
 "}}}
 
 " AUTOCMDS {{{
-autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
+autocmd FileType ruby,haml,eruby,yaml,javascript,cucumber set ai sw=2 sts=2 et
 autocmd BufReadPost,BufNewFile *_spec.rb set syntax=rspec filetype=rspec
 autocmd FileType python set sw=4 sts=4 et
+autocmd FileType haskell set sw=4 sts=4 et
+autocmd FileType sass,scss,css,less,html set sw=4 sts=4 et
 
 autocmd! BufRead,BufNewFile *.sass setfiletype sass
 autocmd! BufRead,BufNewFile *.scss setfiletype scss
@@ -158,10 +167,9 @@ autocmd BufRead *.markdown  set ai formatoptions=tcroqn2 comments=n:&gt;
 " colors{{{
 let &t_Co=256
 let base16colorspace=256  " Access colors present in 256 colorspace
-
-set background=dark
 color base16-tomorrow
-"color base16-default
+"color base16-solarized
+set background=dark
 "}}}
 
 " Highlight characters past 80c {{{
@@ -249,27 +257,43 @@ map <leader>n :call RenameFile()<cr>
 "}}}
 
 " unite.vim {{{
+nnoremap <C-P> :<C-u>Unite -buffer-name=files -start-insert buffer file_rec/async:!<cr>
+nnoremap <silent> <Space>a :Unite grep:.<cr>
+
 let g:unite_enable_start_insert = 1
 let g:unite_split_rule = "botright"
 let g:unite_force_overwrite_statusline = 0
-let g:unite_winheight = 10
+let g:unite_winheight = 20
 let g:unite_source_file_rec_max_cache_files = 1000
+let g:unite_source_grep_command = 'ag'
+let g:unite_source_grep_default_opts =
+      \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
+      \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+let g:unite_source_grep_recursive_opt = ''
+let g:unite_matcher_fuzzy_max_input_length = 1/0 " infinity
 
-call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+call unite#filters#sorter_default#use(['sorter_rank'])
+call unite#custom#source(
+      \ 'file_rec,file_rec/async,file_mru,file,buffer', 'matchers',
+      \ ['matcher_fuzzy'])
+call unite#custom#source(
+      \ 'file', 'matchers',
+      \ ['matcher_fuzzy', 'matcher_hide_hidden_files'])
+call unite#custom#source(
+      \ 'file_rec/async,file_mru', 'converters',
+      \ ['converter_file_directory'])
+call unite#custom_source(
+      \'file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ 'ignore_pattern', join([
       \ '\.git/',
       \ 'node_modules',
       \ 'vendor\/ruby',
       \ 'vendor\/rbx',
       \ 'tmp\/',
-      \ 'vendor\/'
+      \ 'vendor\/',
+      \ '_cache\/'
       \ ], '\|'))
 
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-
-nnoremap <C-P> :<C-u>Unite -buffer-name=files -start-insert buffer file_rec/async:!<cr>
-nnoremap <silent> <Space>a :Unite grep:.<cr>
 
 autocmd FileType unite call s:unite_settings()
 
@@ -323,7 +347,7 @@ nnoremap <C-w>m :call WindowSwapping()<CR>
 "}}}
 
 " Airline settings {{{
-let g:airline_theme='lucius'
+let g:airline_theme='ubaryd'
 let g:airline_enable_syntastic=1
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
@@ -333,35 +357,29 @@ let g:airline_enable_branch=1
 "}}}
 
 " selecta {{{
-function! SelectaIdentifier()
-  " Yank the word under the cursor into the z register
-  normal "zyiw
-  " Fuzzy match files in the current directory, starting with the word under
-  " the cursor
-  call SelectaCommand("find * -type f", "-s " . @z, ":e")
-endfunction
-nnoremap <c-g> :call SelectaIdentifier()<cr>
-
 " Run a given vim command on the results of fuzzy selecting from a given shell
 " command. See usage below.
 function! SelectaCommand(choice_command, selecta_args, vim_command)
   try
-    silent! exec a:vim_command . " " . system(a:choice_command . " | selecta " . a:selecta_args)
+    silent let selection = system(a:choice_command . " | selecta " . a:selecta_args)
   catch /Vim:Interrupt/
     " Swallow the ^C so that the redraw below happens; otherwise there will be
     " leftovers from selecta on the screen
+    redraw!
+    return
   endtry
   redraw!
+  exec a:vim_command . " " . selection
 endfunction
 
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
-nnoremap <leader>f :call SelectaCommand("find * -type d -name ruby -name tmp -prune -o -type f", "", ":e")<cr>
+nnoremap <leader>f :call SelectaCommand("find * -type f", "", ":e")<cr>
 " }}}
 
 let g:vroom_use_vimux = 1
 let g:vroom_clear_screen = 1
-
+let g:haskell_conceal_wide = 1
 " neocomplcache settings {{{
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_force_overwrite_completefunc=1
