@@ -3,62 +3,12 @@
 "--------------initial-setup-------------
 "----------------------------------------
 
-" vundle {{{
-set nocompatible
-syntax on
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-Bundle 'gmarik/vundle'
-
-" packages
-Bundle "tpope/vim-markdown"
-Bundle "tpope/vim-fugitive"
-Bundle "tpope/vim-sensible"
-Bundle "tpope/vim-rails"
-Bundle "tpope/vim-surround"
-Bundle "tpope/vim-bundler"
-Bundle "tpope/vim-sleuth"
-Bundle "tpope/vim-vinegar"
-
-Bundle "eagletmt/neco-ghc"
-Bundle "eagletmt/ghcmod-vim"
-Bundle "dag/vim2hs"
-
-Bundle "chriskempson/vim-tomorrow-theme"
-Bundle "jonathanfilip/vim-lucius"
-Bundle "kchmck/vim-coffee-script"
-Bundle "Shougo/neocomplcache.vim"
-Bundle "Lokaltog/vim-easymotion"
-Bundle "mileszs/ack.vim"
-Bundle "Shougo/vimproc.vim"
-Bundle "Shougo/unite.vim"
-Bundle "bling/vim-airline"
-Bundle "Yggdroot/indentLine"
-Bundle 'airblade/vim-gitgutter'
-Bundle "jiangmiao/auto-pairs"
-Bundle "sunaku/vim-ruby-minitest"
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'Keithbsmiley/rspec.vim'
-Bundle "vim-ruby/vim-ruby"
-Bundle "cvincent/vim-vroom"
-Bundle "benmills/vimux"
-Bundle "jpalardy/vim-slime"
-Bundle "scrooloose/syntastic"
-Bundle "moll/vim-node"
-Bundle "hail2u/vim-css3-syntax"
-Bundle "othree/html5.vim"
-Bundle "chriskempson/base16-vim"
-Bundle "digitaltoad/vim-jade"
-Bundle "nono/vim-handlebars"
-Bundle "pangloss/vim-javascript"
-Bundle "cakebaker/scss-syntax.vim"
-Bundle "jelera/vim-javascript-syntax"
-Bundle "marijnh/tern_for_vim"
-Bundle "wavded/vim-stylus"
-" }}}
+if !exists('s:loaded_my_vimrc')
+  source ~/.vim/modules/vundles.vim
+  source ~/.vim/modules/unite.vim
+  source ~/.vim/modules/selecta.vim
+  source ~/.vim/modules/functions.vim
+endif
 
 " options {{{
 filetype plugin indent on
@@ -206,146 +156,6 @@ nnoremap <Down> :echoe "Use j"<CR>
 
 "}}}
 
-" FUNCTIONS {{{
-
-"ghlights - hl match under cursor differently from Search {{{
-fu! HL_Search_Cword()
-  let s:old_cpo = &cpo
-  set cpo&vim
-
-  if exists('b:search_cword_item')
-    try
-      call matchdelete(b:search_cword_item)
-    catch /^Vim\%((\a\+\)\=:E/ " ignore E802,E803
-    endtry
-  endif
-
-  " :silent !printf '\e]12;\#242424\a'
-  hi Search       ctermfg=233 ctermfg=106 cterm=bold
-  "hi Search       ctermfg=106 ctermbg=233 cterm=bold
-  hi search_cword ctermfg=085 ctermbg=234 cterm=bold
-
-  let b:search_cword_item = matchadd('search_cword', (&ic ? '\c' : '') . '\%#' . @/, 1)
-
-  let &cpo = s:old_cpo
-endfu
-"}}}
-
-" viminfo - save cursor position {{{
-autocmd BufReadPost * call SetCursorPosition()
-fu! SetCursorPosition()
-  if &filetype !~ 'svn\|commit\c'
-    if line("'\"") > 0 && line("'\"") <= line("$")
-      exe "normal! g`\""
-      normal! zz
-    endif
-  end
-endfu
-"}}}
-
-" rename current file (stolen from grb) {{{
-function! RenameFile()
-    let old_name = expand('%')
-    let new_name = input('New file name: ', expand('%'), 'file')
-    if new_name != '' && new_name != old_name
-        exec ':saveas ' . new_name
-        exec ':silent !rm ' . old_name
-        redraw!
-    endif
-endfunction
-map <leader>n :call RenameFile()<cr>
-"}}}
-
-" unite.vim {{{
-nnoremap <C-P> :<C-u>Unite -buffer-name=files -start-insert buffer file_rec/async:!<cr>
-nnoremap <silent> <Space>a :Unite grep:.<cr>
-
-let g:unite_enable_start_insert = 1
-let g:unite_split_rule = "botright"
-let g:unite_force_overwrite_statusline = 0
-let g:unite_winheight = 20
-let g:unite_source_file_rec_max_cache_files = 1000
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts =
-      \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
-      \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-let g:unite_source_grep_recursive_opt = ''
-let g:unite_matcher_fuzzy_max_input_length = 1/0 " infinity
-
-call unite#filters#sorter_default#use(['sorter_rank'])
-call unite#custom#source(
-      \ 'file_rec,file_rec/async,file_mru,file,buffer', 'matchers',
-      \ ['matcher_fuzzy'])
-call unite#custom#source(
-      \ 'file', 'matchers',
-      \ ['matcher_fuzzy', 'matcher_hide_hidden_files'])
-call unite#custom#source(
-      \ 'file_rec/async,file_mru', 'converters',
-      \ ['converter_file_directory'])
-call unite#custom_source(
-      \'file_rec,file_rec/async,file_mru,file,buffer,grep',
-      \ 'ignore_pattern', join([
-      \ '\.git/',
-      \ 'node_modules',
-      \ 'vendor\/ruby',
-      \ 'vendor\/rbx',
-      \ 'tmp\/',
-      \ 'vendor\/',
-      \ '_cache\/'
-      \ ], '\|'))
-
-
-autocmd FileType unite call s:unite_settings()
-
-function! s:unite_settings()
-  let b:SuperTabDisabled=1
-  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-  imap <silent><buffer><expr> <C-x> unite#do_action('split')
-  imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
-  imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
-
-  nmap <buffer> <ESC> <Plug>(unite_exit)
-endfunction
-"}}}
-
-" window swap {{{
-" <CTRL>-w m : mark first window
-" <CTRL>-w m : swap with that window
-let s:markedWinNum = -1
-
-function! MarkWindowSwap()
-    let s:markedWinNum = winnr()
-endfunction
-
-function! DoWindowSwap()
-    "Mark destination
-    let curNum = winnr()
-    let curBuf = bufnr( "%" )
-    exe s:markedWinNum . "wincmd w"
-    "Switch to source and shuffle dest->source
-    let markedBuf = bufnr( "%" )
-    "Hide and open so that we aren't prompted and keep history
-    exe 'hide buf' curBuf
-    "Switch to dest and shuffle source->dest
-    exe curNum . "wincmd w"
-    "Hide and open so that we aren't prompted and keep history
-    exe 'hide buf' markedBuf
-endfunction
-
-function! WindowSwapping()
-    if s:markedWinNum == -1
-        call MarkWindowSwap()
-    else
-        call DoWindowSwap()
-        let s:markedWinNum = -1
-    endif
-endfunction
-
-nnoremap <C-w>m :call WindowSwapping()<CR>
-" }}}
-"}}}
-
 " Airline settings {{{
 let g:airline_theme='ubaryd'
 let g:airline_enable_syntastic=1
@@ -356,30 +166,10 @@ let g:airline_linecolumn_prefix = '¶ '
 let g:airline_enable_branch=1
 "}}}
 
-" selecta {{{
-" Run a given vim command on the results of fuzzy selecting from a given shell
-" command. See usage below.
-function! SelectaCommand(choice_command, selecta_args, vim_command)
-  try
-    silent let selection = system(a:choice_command . " | selecta " . a:selecta_args)
-  catch /Vim:Interrupt/
-    " Swallow the ^C so that the redraw below happens; otherwise there will be
-    " leftovers from selecta on the screen
-    redraw!
-    return
-  endtry
-  redraw!
-  exec a:vim_command . " " . selection
-endfunction
-
-" Find all files in all non-dot directories starting in the working directory.
-" Fuzzy select one of those. Open the selected file with :e.
-nnoremap <leader>f :call SelectaCommand("find * -type f", "", ":e")<cr>
-" }}}
-
 let g:vroom_use_vimux = 1
 let g:vroom_clear_screen = 1
 let g:haskell_conceal_wide = 1
+
 " neocomplcache settings {{{
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_force_overwrite_completefunc=1
